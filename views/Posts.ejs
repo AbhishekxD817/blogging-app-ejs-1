@@ -15,9 +15,25 @@
             </ul>
         </nav>
         <div class="posts-container">
-            <div class="post">
 
-            </div>
+            <% posts.forEach(post => { %>
+                <div class="post">
+                    <h4>@<%= post.username %></h4>
+                    <h5>Followers:<%= post.followers %> | Following:<%= post.following %></h5>
+                    <p><%= post.content %></p>
+                    <span>&#10084; <%= post.likes %></span>
+
+
+                    <div class="tags-container">
+                        <% for( let i = 0; i < post.tags.length; i++ ) { %>
+                            <span><%= post.tags[i] %></span>
+                        <% } %>
+                    </div>
+
+                    <button><a href="/posts/<%= post.post_id %>">View Post</a></button>
+                </div>
+            <% }) %>
+
         </div>
     </center>
 </body>
