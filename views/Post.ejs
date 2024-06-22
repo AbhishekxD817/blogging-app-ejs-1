@@ -8,6 +8,12 @@
 </head>
 <body class="post-body">
     <center>
+        <nav>
+            <ul>
+                <li>&#8618;<a href="/">Home</a></li>
+                <li>&#8618;<a href="/posts">All Posts</a></li>
+            </ul>
+        </nav>
         <h4>Post Id: <%= post.post_id %></h4>
         <div class="post">
             <h4>@<%= post.username %></h4>
@@ -24,10 +30,7 @@
 
             <button><a href="/posts/<%= post.post_id %>/edit">Edit Post</a></button>
         </div>
-        <ul>
-            <li>&#8618;<a href="/">Home</a></li>
-            <li>&#8618;<a href="/posts">All Posts</a></li>
-        </ul>
+
     </center>
 </body>
 </html>

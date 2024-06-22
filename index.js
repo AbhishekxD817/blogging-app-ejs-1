@@ -78,19 +78,43 @@ const posts_data = [
 
 // setup routes
 
+// Home
 app.get("/",(req,res)=>{
     res.render("Home");
 })
 
+// All Posts
 app.get("/posts",(req,res)=>{
   res.render("Posts",{posts:posts_data});
 })
 
-app.get("/posts/:id",async(req,res)=>{
-  let {id} = req.params;
-  let post = await posts_data.find((post)=> post.post_id === id)
-  res.render("Post",{post})
+// Create Post
+app.get("/posts/new",(req,res)=>{
+  return res.render("CreatePost")
 })
+
+// Single Post
+app.get("/posts/:id",(req,res)=>{
+  let {id} = req.params;
+  let post = posts_data.find((post)=> post.post_id === id)
+  if(post != undefined){
+    return res.render("Post",{post})
+  }else{
+    return res.render("PageNotFound")
+  }
+})
+
+// Edit Post
+app.get("/posts/:id/edit",(req,res)=>{
+  let {id} = req.params;
+  let post = posts_data.find((post)=> post.post_id === id);
+  if(post != undefined){
+    return res.render("EditPost",{post});
+  }else{
+    return res.render("PageNotFound");
+  }
+})
+
 
 
 

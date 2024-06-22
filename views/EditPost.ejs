@@ -4,22 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Post</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
     <center>
+        <nav>
+            <ul>
+                <li>&#8618;<a href="/">Home</a></li>
+                <li>&#8618;<a href="/posts">All Posts</a></li>
+            </ul>
+        </nav>
         <div class="edit-post">
-            <h2>Username: @</h2>
-            <h4>Post Id:</h4>
+            <h2>Username: @<%= post.username %></h2>
+            <h4>Post Id: <%= post.post_id %></h4>
             <form action="" method="POST">
-                <textarea placeholder="content" name="" id="" cols="30" rows="10"></textarea> 
+                <textarea placeholder="content" name="" id="" cols="30" rows="10"><%= post.content %></textarea> 
                 <br>
                 <br>
-                <input type="text" class="tags" placeholder="tags">
+                <input type="text" class="tags" placeholder="tags" value="<%= post.tags %>">
                 <br>
                 <br>
                 <button>Update Post</button>
             </form>
+
         </div>
     </center>
 </body>
