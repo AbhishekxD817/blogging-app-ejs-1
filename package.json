@@ -1,7 +1,7 @@
 {
-  "name": "blogging-app-ejs-1",
+  "name": "mini-quora-app-01",
   "version": "1.0.0",
-  "description": "In this project, i am creating a simple blogging web app using NodeJs & EJS.",
+  "description": "In this project, i am creating a simple Mini quora web app using NodeJs & EJS.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

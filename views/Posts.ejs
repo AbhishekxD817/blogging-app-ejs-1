@@ -33,6 +33,9 @@
                     </div>
 
                     <button><a href="/posts/<%= post.post_id %>">View Post</a></button>
+                    <form action="/posts/<%= post.post_id %>?_method=DELETE" method="POST" class="delete-form">
+                        <button>Delete Post</button>
+                    </form>
                 </div>
             <% }) %>
 

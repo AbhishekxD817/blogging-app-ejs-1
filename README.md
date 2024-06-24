@@ -1,3 +1,3 @@
-# blogging-app-ejs-1
+# mini-quora-app-01
 
-In this project, i am creating a simple blogging web app using NodeJs & EJS.
+In this project, i am creating a simple mini quora web app using NodeJs & EJS.

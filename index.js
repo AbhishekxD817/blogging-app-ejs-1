@@ -5,6 +5,7 @@ import { dirname } from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 import { v4 as uuidv4 } from 'uuid';
+import methodOverride from "method-override"
 
 
 const PORT = 9876;
@@ -21,13 +22,15 @@ app.use(express.static(path.join(__dirname,"public")));
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
+app.use(methodOverride('_method'))
+
 
 app.listen(PORT,()=>{
     console.log(`Server Started ==> http://localhost:${PORT}`);
 })
 
 
-const posts_data = [
+let posts_data = [
   {
     "post_id": "post1",
     "username": "john_doe",
@@ -116,7 +119,44 @@ app.get("/posts/:id/edit",(req,res)=>{
 })
 
 
+// New Post
+app.post("/posts",(req,res)=>{
+  let { username, followers, following, content, likes, tags } = req.body;
+  let post = {
+    post_id:uuidv4(),
+    username,
+    followers,
+    following,
+    content,
+    likes,
+    tags
+  }
+  posts_data.push(post);
 
+  return res.redirect("/posts");
+})
+
+// update post
+app.patch("/posts/:id",(req,res)=>{
+  let {content,tags} = req.body;
+  let {id } = req.params;
+  for(let post of posts_data){
+    if(post.post_id === id){
+      post.content = content;
+      post.tags = tags;
+      return res.redirect(`/posts/${id}`)
+    }
+  }
+  return res.redirect("/")
+})
+
+
+// delete post
+app.delete("/posts/:id",(req,res)=>{
+  let {id} = req.params;
+  posts_data = posts_data.filter((post)=> post.post_id !== id);
+  return res.redirect("/posts")
+})
 
 
 
