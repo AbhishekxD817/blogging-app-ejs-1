@@ -4,5 +4,7 @@ In this project, i am creating a simple mini quora web app using NodeJs & EJS.
 
 
 Requirements
+<br>
 Node -v v22.2.0 or +
+<br>
 npm -v 10.7.0
