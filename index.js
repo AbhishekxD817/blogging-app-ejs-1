@@ -118,6 +118,10 @@ app.get("/posts/:id/edit",(req,res)=>{
   }
 })
 
+app.get("*",(req,res)=>{
+  res.render("PageNotFound");
+})
+
 
 // New Post
 app.post("/posts",(req,res)=>{
@@ -157,6 +161,7 @@ app.delete("/posts/:id",(req,res)=>{
   posts_data = posts_data.filter((post)=> post.post_id !== id);
   return res.redirect("/posts")
 })
+
 
 
 
