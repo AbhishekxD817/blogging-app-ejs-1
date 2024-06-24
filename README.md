@@ -1,3 +1,8 @@
 # mini-quora-app-01
 
 In this project, i am creating a simple mini quora web app using NodeJs & EJS.
+
+
+Requirements
+Node -v v22.2.0 or +
+npm -v 10.7.0
